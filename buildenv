@@ -43,6 +43,12 @@ expectedFailures:9
 ZZ
 }
 
+zopen_post_install()
+{
+  # Delete the share/info/dir file if it exists
+  rm -f "$1/share/info/dir"
+}
+
 zopen_get_version()
 {
     ./sed/sed --version | head -1 | awk '{print $4}'
